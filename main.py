@@ -1,6 +1,5 @@
 from flask import Flask, request
 import requests
-import json
 
 app = Flask(__name__)
 
@@ -17,7 +16,7 @@ def access_token():
         data = request.json
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
         body = {
@@ -64,7 +63,7 @@ def wake_up(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/wake_up', headers=headers)
@@ -91,7 +90,7 @@ def start_ac(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/auto_conditioning_start', headers=headers)
@@ -105,7 +104,7 @@ def stop_ac(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/auto_conditioning_stop', headers=headers)
@@ -119,7 +118,7 @@ def lock_doors(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/door_lock', headers=headers)
@@ -133,7 +132,7 @@ def unlock_doors(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/door_unlock', headers=headers)
@@ -149,7 +148,7 @@ def toggle_trunk_or_frunk(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/actuate_trunk', headers=headers, json=data)
@@ -166,7 +165,7 @@ def set_sentry_mode(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/set_sentry_mode', headers=headers, json=data)
@@ -181,7 +180,7 @@ def open_charge_port(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/charge_port_door_open', headers=headers)
@@ -195,7 +194,7 @@ def close_charge_port(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/charge_port_door_close', headers=headers)
@@ -209,7 +208,7 @@ def honk_horn(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/honk_horn', headers=headers)
@@ -223,7 +222,7 @@ def flash_lights(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/flash_lights', headers=headers)
@@ -237,7 +236,7 @@ def remote_start(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/remote_start_drive', headers=headers)
@@ -253,7 +252,7 @@ def vent_windows(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/window_control', headers=headers, json=data)
@@ -270,7 +269,7 @@ def set_temp(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/set_temps', headers=headers, json=data)
@@ -287,7 +286,7 @@ def set_pre_ac(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/set_preconditioning_max', headers=headers, json=data)
@@ -304,7 +303,7 @@ def set_steering_wheel_heater(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/remote_steering_wheel_heater_request', headers=headers, json=data)
@@ -319,7 +318,7 @@ def start_charge(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/charge_start', headers=headers)
@@ -333,7 +332,7 @@ def stop_charge(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/charge_stop', headers=headers)
@@ -347,7 +346,7 @@ def standard_charge(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/charge_standard', headers=headers)
@@ -361,7 +360,7 @@ def max_range_charge(id):
         headers = {
             'User-Agent': 'apple_watch/1.0.0',
             'Content-Type': 'application/json',
-            'application/json': 'Accept',
+            'Accept': 'application/json',
             'Authorization': auth
         }
         res = requests.post(BASE_API_TESLA + f'/{id}/command/charge_max_range', headers=headers)
@@ -377,7 +376,7 @@ def set_charge_limit(id):
             headers = {
                 'User-Agent': 'apple_watch/1.0.0',
                 'Content-Type': 'application/json',
-                'application/json': 'Accept',
+                'Accept': 'application/json',
                 'Authorization': auth
             }
             res = requests.post(BASE_API_TESLA + f'/{id}/command/set_charge_limit', headers=headers, json=data)
@@ -394,7 +393,7 @@ def set_charge_limit(id):
                 headers = {
                     'User-Agent': 'apple_watch/1.0.0',
                     'Content-Type': 'application/json',
-                    'application/json': 'Accept',
+                    'Accept': 'application/json',
                     'Authorization': auth
                 }
                 res = requests.post(BASE_API_TESLA + f'/{id}/command/set_cabin_overheat_protection', headers=headers, json=data)
@@ -411,7 +410,7 @@ def set_charge_limit(id):
                 headers = {
                     'User-Agent': 'apple_watch/1.0.0',
                     'Content-Type': 'application/json',
-                    'application/json': 'Accept',
+                    'Accept': 'application/json',
                     'Authorization': auth
                 }
                 res = requests.post(BASE_API_TESLA + f'/{id}/command/set_climate_keeper_mode', headers=headers, json=data)
@@ -421,4 +420,5 @@ def set_charge_limit(id):
 
 if __name__ == '__main__':
     #app.run(debug=True, host='0.0.0.0', port=5000)
-    app.run(host='0.0.0.0', port=8080)
+    #app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=4443, ssl_context=('fullchain.pem', 'privkey.pem'))
